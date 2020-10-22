@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 
 class HomeComponent extends Component {
 
@@ -10,9 +10,18 @@ class HomeComponent extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.footApp}>
+        <View style={styles.containerPhoto}>
+          <Image source={require('../assets/monkeyHome.png')} style={styles.homeImage}/>
+        </View>        
+				<View style={styles.footApp}>
+            <View style={styles.viewButton}>
+              <Button
+                  style={styles.buttonRegisterFoot}
+                  title="Registrar"
+              />
+            </View>            
           <Text style={styles.homeMessage}>{ this.state['title'] }</Text>
-        </Text>
+        </View>
 			</View>
 		);
   }
@@ -21,29 +30,43 @@ class HomeComponent extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+    flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center'
   },
+  containerPhoto: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   footApp: {
-    position: 'absolute',
-    width: 411,
-    height: 337,
-    left: 0,
-    top: 486,
+    flex: 1,
+    width: "100%",
+    justifyContent: 'center',
+		alignItems: 'center',
     backgroundColor: '#235390'
   },
   homeMessage: {
-    position: 'absolute',
-    left: '19',
-    right: '8',
-    top: '860',
-    bottom: '8',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 0,
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 36,
     lineHeight: 44,
     color: '#FCFCFC'
+  },
+  viewButton: {
+    width: 180,
+    marginBottom: 20
+  },
+  buttonRegisterFoot: {
+    height: 300,
+    borderRadius: 200,
+  },
+  homeImage: {
+    left: 150
   }
 });
 
